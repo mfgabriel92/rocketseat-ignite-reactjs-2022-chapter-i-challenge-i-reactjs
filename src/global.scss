@@ -31,7 +31,8 @@ html, body, input, button, textarea {
 }
 
 html, body, #root {
-  background-color: var(--gray-600)
+  background-color: var(--gray-600);
+  height: 100%;
 }
 
 input, button, textarea {
