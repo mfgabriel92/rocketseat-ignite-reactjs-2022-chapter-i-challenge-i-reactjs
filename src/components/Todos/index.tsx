@@ -24,17 +24,15 @@ function EmptyTasksList() {
 }
 
 function Todos() {
-  const [tasks, setTasks] = useState<TaskProps[]>([])
-  const [todo, setTodo] = useState<string>('')
-
-  useEffect(() => {
-    async function loadTasks() {
-      const { data } = await axios.get("http://localhost:3000/api/v1/tasks")
-      setTasks(data.tasks)
+  const [tasks, setTasks] = useState<TaskProps[]>([
+    {
+      id: "64d14df3-2709-463e-a6fa-edae722f7148",
+      title: "Lorem ipsum dolor sit amet.",
+      isCompleted: false,
+      createdAt: new Date("2022-05-20 23:00:00")
     }
-
-    loadTasks()
-  }, [])
+  ])
+  const [todo, setTodo] = useState<string>('')
 
   async function handleAddNewTask(e: FormEvent) {
     e.preventDefault();
@@ -50,8 +48,6 @@ function Todos() {
       createdAt: new Date()
     }
 
-    await axios.post("http://localhost:3000/api/v1/tasks", newTask)
-    
     setTodo('')
     setTasks([ ...tasks, newTask ])
   }
