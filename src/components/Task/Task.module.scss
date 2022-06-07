@@ -1,0 +1,59 @@
+.task {
+  background-color: var(--gray-500);
+  color: var(--gray-200);
+  border-radius: 8px;
+  padding: 0.875rem;
+  margin-bottom: 0.75rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+
+  > input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.09rem;
+    height: 1.09rem;
+    border-radius: 100%;
+    border: 2px solid var(--blue);
+    box-shadow: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:checked {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: var(--gray-100);
+      
+      &::after {
+        content: url("../../assets/check.svg");
+        margin-top: -0.25rem;
+        margin-left: 0.0625rem;
+      }
+    }
+  }
+
+  > p {
+    padding: 0 0.75rem;
+    font-size: 0.875rem;
+
+    &.completed {
+      color: var(--gray-300);
+      text-decoration: line-through;
+    }
+  }
+
+  > svg {
+    color: var(--gray-300);
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--danger);
+      cursor: pointer;
+    }
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
